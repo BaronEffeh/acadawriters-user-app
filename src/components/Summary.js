@@ -20,7 +20,7 @@ const Summary = ({ location }) => {
         <div>
             <h1>Summary</h1>
 
-            <h2>{title}</h2>
+            <h2>${title}</h2>
 
             <h2>Section 1: Personal Data</h2>
             <p>Full Name: <b>{personalData.fullName}</b></p>
@@ -48,7 +48,7 @@ const Summary = ({ location }) => {
                 </div>
             ))}
 
-            <h2>Section 4: Other Info</h2>
+            <h2>Other Information</h2>
             <p>Financial Support/Funds Available: <b>{otherInfo.financialSupport}</b></p>
             <p>Home Ties: <b>{otherInfo.homeTies}</b></p>
             <p>Future Prospect: <b>{otherInfo.futureProspect}</b></p>

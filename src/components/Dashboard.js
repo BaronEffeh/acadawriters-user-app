@@ -29,7 +29,8 @@ const Dashboard = ({ user }) => {
     const filteredTasks = taskList.filter(task =>
         task.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
         task.paymentStatus.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        task.taskStatus.toLowerCase().includes(searchTerm.toLowerCase())
+        task.taskStatus.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        task.startDate.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     // Calculate the total number of completed and pending tasks
@@ -45,24 +46,27 @@ const Dashboard = ({ user }) => {
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
     return (
-        <div>
-            <h1>Dashboard</h1>
-            <div>
+        <div className='container'>
+            <p id='dashboard-icon'><img src={process.env.PUBLIC_URL + '/dashboard-icons.png'} alt="Dsahboard Icon" style={{ width: '', height: '', borderRadius: '', paddingRight: '5px', marginTop: '' }} /></p>
+            <h6 id='page-title'><span id='dash'>Dashboard</span></h6>
+            <div id='user-profile'>
                 {/* <p>Welcome, {user.name}</p> */}
                 {/* Assuming `user.profileImage` is the URL of the user's profile image */}
                 {/* {user.profileImage && <img src={user.profileImage} alt="Profile" style={{ width: '50px', height: '50px' }} />} */}
 
-                <img src={user.profileImage} alt="User Profile" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
+                <img src={process.env.PUBLIC_URL + '/profile-image.png'} alt="User Profile" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
                 <p>{`${user.firstName} ${user.lastName}`}</p>
+                <p id='privilege-level'>{`${user.privilegeLevel}`}</p>
             </div>
 
-            <div>
-                <p>Tasks Completed: {completedTasks}</p>
-                <p>Tasks Pending: {pendingTasks}</p>
+            <div id='dashboard-summary'>
+                <p><img src={process.env.PUBLIC_URL + '/task.png'} alt="Task Completed" style={{ width: '', height: '', borderRadius: '', textAlign: 'left' }} /> Tasks Completed: <br />{completedTasks}</p>
+                <p><img src={process.env.PUBLIC_URL + '/task.png'} alt="Task Completed" style={{ width: '', height: '', borderRadius: '', textAlign: 'left' }} />Tasks Pending <br /> {pendingTasks}</p>
                 <button onClick={() => console.log('Start Task')}>Start Task</button>
             </div>
 
-            <div>
+            <div id='search-bar'>
+                <p>Recent Tasks</p>
                 <input
                     type="text"
                     placeholder="Search tasks"
@@ -90,10 +94,10 @@ const Dashboard = ({ user }) => {
                             <td>{task.amount}</td>
                             <td>{task.startDate}</td>
                             <td>{task.deadline}</td>
-                            <td>{task.paymentStatus}</td>
-                            <td>{task.taskStatus}</td>
+                            <td><span style={{ backgroundColor: '#BB371A17', borderRadius: '25px', padding: '12px', color: '#BB371A' }}> {task.paymentStatus}</span></td>
+                            <td><span style={{ backgroundColor: '#1EAE9817', borderRadius: '25px', padding: '12px', color: '#1EAE98' }}>{task.taskStatus}</span></td>
                             <td>
-                                <button onClick={() => console.log('Download Task', task.id)}>Download</button>
+                                <button onClick={() => console.log('Download Task', task.id)} style={{ border: 'none', background: 'transparent' }}><img src={process.env.PUBLIC_URL + '/download-btn.png'} alt="Download Button" style={{ width: '20px', height: '20px', border: 'none' }} /></button>
                             </td>
                         </tr>
                     ))}
@@ -114,6 +118,7 @@ const Dashboard = ({ user }) => {
                 </button>
             </div>
         </div>
+
     );
 };
 

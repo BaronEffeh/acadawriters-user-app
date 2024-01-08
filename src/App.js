@@ -19,19 +19,20 @@ function App() {
     firstName: 'Ike', // Replace with actual user data
     lastName: 'Chukwu',
     profileImage: 'path/to/profile-image.jpg',
+    privilegeLevel: 'ADMIN'
   });
 
   return (
     <Router>
       <div className="App">
-        <h1>AcadaWriters User Application</h1>
+        {/* <h1>AcadaWriters User Application</h1> */}
         <SideBar />
         <div className="content">
           <Switch>
             <Route path="/sign-up">
               <SignUp />
             </Route>
-            <Route exact path="/sign-in">
+            <Route exact path="/">
               <SignIn />
             </Route>
             <Route path="/reset-password">
@@ -41,16 +42,16 @@ function App() {
               <Dashboard user={user} />
             </Route>
             <Route path="/letter-of-explanation">
-              <LetterOfExplanation />
+              <LetterOfExplanation user={user} />
             </Route>
             <Route path="/statement-of-purpose">
-              <StatementOfPurpose />
+              <StatementOfPurpose user={user} />
             </Route>
             <Route path="/application-essay">
-              <ApplicationEssay />
+              <ApplicationEssay user={user} />
             </Route>
             <Route path="/uk-canadian-styled-resume">
-              <UkCanadianStyledResume />
+              <UkCanadianStyledResume user={user} />
             </Route>
             <Route path="/summary" component={Summary} />
             {/* <Route path="/summary">

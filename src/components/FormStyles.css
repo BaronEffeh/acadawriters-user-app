@@ -1,0 +1,44 @@
+.form-container {
+    /* background-color: aqua; */
+    position: absolute;
+    left: 0;
+    top: 70px;
+    max-width: 35%;
+    text-align: left;
+}
+
+.form-container input {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #2A166F;
+    border-radius: 3px;
+}
+
+.form-container label {
+    margin-top: 40px;
+    padding-top: 40px;
+}
+
+.form-container button {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #00A568;
+    color: white;
+    width: 135px;
+    padding: 15px 0;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    margin-left: 50%;
+}
+
+/* button:last-child {
+    margin-left: 100%;
+} */
+
+.form-container textarea {
+    width: 100%;
+    height: 150px;
+    border: 1px solid #2A166F;
+    border-radius: 3px;
+}
